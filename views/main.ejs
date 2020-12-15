@@ -1,0 +1,76 @@
+<%- include('header') %>
+<%- include('navbar') %>
+
+  <div class="container">
+  <div class="row">
+    <div class="col-l-2">
+	<br></br>
+	<br></br>
+		<h1>Garázs:</h1>
+		<% if(typeof error !== 'undefined'){ %>
+			<div class="alert alert-danger"><%= error %></div>
+		<% } %>
+    </div>
+    <div class="col-xl-4">
+	<br></br>
+	<br></br>
+	<br></br>
+		<form method ="POST">
+		<% kocsik.forEach(function(egyKocsi){ %>
+			<h1> <%= egyKocsi.model%> </h1>
+			<table style="width:100%">
+				<tr>
+					<th>Állapot</th>
+					<th> <%=egyKocsi.allapot%>%</th>
+				</tr>
+				<tr>
+					<td>Akkumlátor</td>
+					<td><%=egyKocsi.akkumlator%>%</td>
+				</tr>
+				<tr>
+					<td>Szín</td>
+					<td><%=egyKocsi.szin%></td>
+				</tr>
+				<tr>
+					<td>Tisztaság</td>
+					<td><%=egyKocsi.tisztasag%></td>
+				</tr>
+				<tr>
+					<% if(egyKocsi.elado){%>
+						Éppen eladó a kocsid. Ha megveszik, akkor a pénz is érkezik.
+					<% }else{%>
+						Most nem eladó a kocsid.
+					<% } %>
+				</tr>
+			</table>
+			<div class="btn-group" role="group" aria-label="Basic example">
+				<a href = "/garazs/tisztit/<%= egyKocsi._id %>" class="btn btn-secondary">Tisztítás(1$)</a>
+				<a href = "/garazs/tolt/<%= egyKocsi._id %>" class="btn btn-secondary">Töltés(5$)</a>
+				<a href = "/garazs/szerviz/<%= egyKocsi._id %>" class="btn btn-secondary">Szervíz(10$)</a>
+			</div>
+			<div class="btn-group" role="group" aria-label="Basic example">
+				<a href = "/garazs/vezet/<%= egyKocsi._id %>" class="btn btn-secondary">Vezetés</a>
+				<a href = "/garazs/elad/<%= egyKocsi._id %>" class="btn btn-secondary">Eladás</a>
+				<a href = "/garazs/del/<%= egyKocsi._id %>" class="btn btn-secondary">Gyors Eladás</a>
+			</div>
+			
+		
+		
+		<% }); %>
+		</form>
+    </div>
+	<div class="col-xl-4">
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+	<center><a href="garazs/uj" class="fas fa-plus-circle" style="font-size:48px"></a></center>
+	
+      
+    </div>
+  </div>
+</div>
+
+<%- include('footer') %>

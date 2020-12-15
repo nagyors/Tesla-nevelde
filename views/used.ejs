@@ -1,0 +1,46 @@
+<%- include('header') %>
+<%- include('navbar') %>
+  
+  <div class="container">
+  <div class="row">
+
+    <div class="col-xl-6">
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+		<font size="3">
+		<table style="width:120%">
+			<form method="POST">
+			<% masKocsik.forEach(function(egyKocsi){ %>
+                    <% if(egyKocsi._garazs.name !== user.name){ %>
+					<tr>
+                        <td>
+                            <%= egyKocsi.model %> - <%= egyKocsi.szin %> - Állapot:<%= egyKocsi.allapot %>% - Tulajdonos: <%= egyKocsi._garazs.name %> - Ár:<%= egyKocsi.ar %>
+                        </td>
+                   
+                        <td style="width:30px;white-space: nowrap">
+                            <a href="/garazs/hasznalt/<%= egyKocsi.id %>" class="btn btn-link">Megveszem</a>
+                        </td>
+                    </tr>
+					<% } %>
+                <% }); %>
+			</form>
+		</table>		
+    </div>
+	<div class="col-xl-6">
+	<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+
+		<br></br>
+		<br></br>
+		<a href="/garazs" class="btn btn-primary">Vissza</a>
+	
+    </div>
+  </div>
+</div>
+<%- include('footer') %>

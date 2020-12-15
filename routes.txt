@@ -1,0 +1,65 @@
+Tesla-nevelde
+-index.html - login form
+-fpw.html- elfelejtett jelszo
+-main.html tisztitas, toltes, szerviz, vezetes, eladas gombok
+-used.html megveszem gomb 
+-uj.html megveszem gomb
+
+Routing
+
+renderMW
+
+middlewares/auth/
+	checkEmailPassMW
+	authMW
+	
+middlewares/kocsi/
+	getKocsiMW
+	tisztitasMW
+	toltesMW
+	szervizMW
+	vezetesMW
+	delKocsiMW
+
+middlewares/reg/	
+	sendPwMW
+	getUserByEmailMW
+	checkEmailPassMW
+	regUserMW
+
+middlewares/vasarlas/
+	megveszUjMW
+	megveszHaszMW
+
+
+GET,POST / 						-index.html
+	getUserByEmailMW
+	checkEmailPassMW
+	regUserMW
+	renderMW(index.html)
+
+GET,POST /elfelejtett			-fpw.html
+	getUserByEmailMW
+	sendPwMW
+	render(fpw.html)
+
+
+GET,POST /garazs 				- main.html 
+	authMW
+	getKocsiMW
+	tisztitasMW
+	toltesMW
+	szervizMW
+	vezetesMW
+	delKocsiMW (eladas)
+	renderMW(main.html)
+	
+GET,POST /garazs/uj 				- uj.html
+	authMW
+	megveszUjMW
+	renderMW(uj.html)
+	
+GET,POST /garazs/hasznalt 		- used.html
+	authMW
+	megveszHaszMW
+	renderMW(used.html)

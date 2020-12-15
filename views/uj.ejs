@@ -1,0 +1,90 @@
+<%- include('header') %>
+<%- include('navbar') %>
+
+<% if(typeof error !== 'undefined'){ %>
+			<div class="alert alert-danger"><%= error %></div>
+<% } %> 
+   
+<div class="container">
+<div class="row">
+    <div class="col-xl-6">
+	<br></br>
+	<br></br>
+	<h1>Új kocsi</h1>
+		<form method="post">
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="model" id="models" value="models" checked>
+			<label class="form-check-label" for="models">
+				Model S - 100$
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="model" id="model3" value="model3">
+			<label class="form-check-label" for="model3">
+				Model 3 - 30$
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="model" id="modelx" value="modelx">
+			<label class="form-check-label" for="modelx">
+				Model X - 120$
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="model" id="modely" value="modely">
+			<label class="form-check-label" for="modely">
+				Model Y - 40$
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="model" id="roadster" value="roadster">
+			<label class="form-check-label" for="roadster">
+				Roadster - 250$
+			</label>
+		</div>
+	</div>
+	
+	<div class="col-xl-6">
+		<br></br>
+		<br></br>
+		<h1>Új kocsi színe</h1>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="szin" id="fekete" value="fekete" checked>
+			<label class="form-check-label" for="fekete">
+				Fekete
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="szin" id="feher" value="feher">
+			<label class="form-check-label" for="feher">
+				Fehér
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="szin" id="kek" value="kek">
+			<label class="form-check-label" for="kek">
+				Kék
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="szin" id="piros" value="piros">
+			<label class="form-check-label" for="piros">
+				Piros
+			</label>
+		</div>
+    </div>
+    
+    </div>
+	<div class="col-xl-6">
+	<center>
+		<br></br>
+		
+
+		<input type="submit" class="btn btn-primary" value="Megveszem">
+		<a href="/garazs" class="btn btn-link">Vissza</a>
+	</center>
+	</form>
+</div>
+</div>
+  
+<%- include('footer') %>
